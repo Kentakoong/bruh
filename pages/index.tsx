@@ -1,9 +1,8 @@
 import { BruhEffect } from "@components/BruhEffect";
 import { MuteAudio } from "@components/MuteAudio";
-import { useLayoutEffect } from "react";
-import { useCallback } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { SaveCount } from "utils/saveCount";
 
 export default function Index() {
   const [bruh, setBruh] = useState<number>();
@@ -11,20 +10,7 @@ export default function Index() {
   const [triggered, setTriggered] = useState(false);
   const [randomNum, setRandomNum] = useState<number>(0);
 
-  const handleInitiation = useCallback(() => {
-    const bruhCount = localStorage.getItem("bruh");
-    setBruh(bruhCount ? Number(bruhCount) : 0);
-  }, []);
-
-  useLayoutEffect(() => {
-    handleInitiation();
-    return () => handleInitiation();
-  }, [handleInitiation]);
-
-  useEffect(() => {
-    if (!bruh) return;
-    localStorage.setItem("bruh", bruh.toString());
-  }, [bruh]);
+  SaveCount(bruh, setBruh);
 
   function triggerDelay() {
     setTriggered(true);
