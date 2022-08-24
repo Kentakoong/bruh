@@ -2,8 +2,8 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { useCallback } from "react";
 
 export const SaveCount = (
-  count: number,
-  setCount: React.Dispatch<React.SetStateAction<number>>
+  setCount: React.Dispatch<React.SetStateAction<number | undefined>>,
+  count?: number
 ) => {
   const handleInitiation = useCallback(() => {
     const bruhCount = localStorage.getItem("bruh");

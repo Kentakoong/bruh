@@ -10,7 +10,7 @@ export default function Index() {
   const [triggered, setTriggered] = useState(false);
   const [randomNum, setRandomNum] = useState<number>(0);
 
-  SaveCount(bruh, setBruh);
+  SaveCount(setBruh, bruh);
 
   function triggerDelay() {
     setTriggered(true);
