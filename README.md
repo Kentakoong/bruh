@@ -2,11 +2,11 @@
 <h1 align="center">Welcome to bruh!</h1>
 <p align="center">Well, it's just like other clicking websites.</p>
 
-# Roadmap
+## Roadmap
 
 - [ ] Add a global bruh counter
 
 
-# Contributing
+## Contributing
 
 For contribution, you could do a Pull Request for new features, or optimizations. I would totally appreciate it.
