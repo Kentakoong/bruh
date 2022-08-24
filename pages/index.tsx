@@ -1,5 +1,6 @@
 import { BruhEffect } from "@components/BruhEffect";
 import { MuteAudio } from "@components/MuteAudio";
+import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react";
 import { SaveCount } from "utils/saveCount";
@@ -29,6 +30,10 @@ export default function Index() {
 
   return (
     <div className="relative w-full h-screen font-montserrat font-bold flex flex-col justify-center items-center text-8xl">
+      <Head>
+        <title>Bruh</title>
+        <meta name="description" content="The BRUH Clicker!" />
+      </Head>
       <p
         className={`select-none cursor-pointer transition ease-in-out hover:scale-110 active:scale-100 hover:drop-shadow-2xl p-10`}
         onClick={async () => {
