@@ -1,14 +1,30 @@
 import { BruhEffect } from "@components/BruhEffect";
 import { MuteAudio } from "@components/MuteAudio";
+import { useLayoutEffect } from "react";
 import { useCallback } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Index() {
-  const [hello, setHello] = useState(0);
-  const [triggered, setTriggered] = useState(false);
-  const [randomNum, setRandomNum] = useState(0);
+  const [bruh, setBruh] = useState<number>();
   const [muteAudio, setMuteAudio] = useState(false);
+  const [triggered, setTriggered] = useState(false);
+  const [randomNum, setRandomNum] = useState<number>(0);
+
+  const handleInitiation = useCallback(() => {
+    const bruhCount = localStorage.getItem("bruh");
+    setBruh(bruhCount ? Number(bruhCount) : 0);
+  }, []);
+
+  useLayoutEffect(() => {
+    handleInitiation();
+    return () => handleInitiation();
+  }, [handleInitiation]);
+
+  useEffect(() => {
+    if (!bruh) return;
+    localStorage.setItem("bruh", bruh.toString());
+  }, [bruh]);
 
   function triggerDelay() {
     setTriggered(true);
@@ -30,7 +46,7 @@ export default function Index() {
       <p
         className={`select-none cursor-pointer transition ease-in-out hover:scale-110 active:scale-100 hover:drop-shadow-2xl p-10`}
         onClick={async () => {
-          setHello(hello + 1);
+          setBruh((prev) => (prev ? prev + 1 : 1));
           setRandomNum(parseInt((Math.random() * (4 - 1) + 1).toFixed(0)));
           playAudio();
           triggerDelay();
@@ -38,7 +54,7 @@ export default function Index() {
       >
         🗿
       </p>
-      <p className={`text-center select-none text-2xl`}>{hello}</p>
+      <p className={`text-center select-none text-2xl`}>{bruh}</p>
       <MuteAudio muteAudio={muteAudio} setMuteAudio={setMuteAudio} />
       <BruhEffect triggered={triggered} randomNum={randomNum} />
     </div>
