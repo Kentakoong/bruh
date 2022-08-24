@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "name": "Install",
+      "request": "launch",
+      "command": "yarn",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "Development",
+      "request": "launch",
+      "command": "yarn dev",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "Code Cleanup",
+      "request": "launch",
+      "command": "yarn clean",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "ESLint Check",
+      "request": "launch",
+      "command": "yarn lint",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
