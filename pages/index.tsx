@@ -1,7 +1,6 @@
 import { BruhEffect } from "@components/BruhEffect";
 import { MuteAudio } from "@components/MuteAudio";
 import Head from "next/head";
-import { useEffect } from "react";
 import { useState } from "react";
 import { SaveCount } from "utils/saveCount";
 
@@ -11,7 +10,7 @@ export default function Index() {
   const [triggered, setTriggered] = useState(false);
   const [randomNum, setRandomNum] = useState<number>(0);
 
-  SaveCount(setBruh, bruh);
+  const isInitialized = SaveCount(setBruh, bruh);
 
   function triggerDelay() {
     setTriggered(true);
@@ -28,6 +27,7 @@ export default function Index() {
     audio.remove();
   }
 
+  if (isInitialized) return <></>;
   return (
     <div className="relative w-full h-screen font-montserrat font-bold flex flex-col justify-center items-center text-8xl">
       <Head>
