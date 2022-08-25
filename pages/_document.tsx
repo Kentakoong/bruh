@@ -17,7 +17,7 @@ class MyDocument extends Document {
           />
         </Head>
         <link rel="icon" href="/favicon.png" />
-        <body className="antialiased overflow-x-hidden">
+        <body className="antialiased">
           <Main />
           <NextScript />
         </body>
