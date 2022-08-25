@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# black-listed-bot
+User-agent: black-listed-bot
+Disallow: /api
+Disallow: /error
+
+# Host
+Host: https://bruh.inedible.dev
+
+# Sitemaps
+Sitemap: https://bruh.inedible.dev/sitemap.xml
